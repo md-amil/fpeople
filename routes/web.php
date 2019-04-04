@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('posts.show');
+    return view('posts.index');
 });
 
 Route::resource('posts', 'PostController');
