@@ -1,6 +1,21 @@
 @extends('layouts.web')
+@section('data')
+    <div class="container">
+        <div class="blog-div">
+            <h1>This is simple blog posts</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Perferendis cum nostrum optio vitae assumenda maiores placeat, beatae tempora pariatur id temporibus eum necessitatibus totam minus, voluptatem a quae. Dignissimos, quisquam?
+        </div>
+    </div>
+
+@endsection
+
+
+
+
 
 @section('content')
+
 <div class="container">
     <a href="{{route('posts.create')}}" class="btn btn-default">create post</a>
     @foreach($posts as $post)

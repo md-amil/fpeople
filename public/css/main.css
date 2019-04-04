@@ -1,0 +1,59 @@
+body {
+background-color:#f1f1f1;
+}
+.contact li {
+    display: inline-block;
+    margin-right:15px;
+    padding: 5px;
+    margin-top: 4px;
+    font-size: 15px;
+    margin-bottom: -7px;
+} 
+
+.icon li {
+    display: inline-block;
+    padding: 5px;
+    margin-top: 4px;
+    font-size: 16px;
+    margin-bottom: -7px;
+    list-style: none;
+}
+.icon {
+    margin-left: 207px;
+    position: absolute;
+    margin-top: 21px;
+
+    
+}
+.icon  li  a {
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+}
+.india {
+     font-size: 46px;
+     color: #483c41;
+
+} 
+.nav  {
+    list-style-type: none;
+    margin: 17px;
+    position: absolute;
+    flex-direction: row;
+}
+
+.nav > li {
+  display: inline;
+  margin: 10px;
+}
+
+.nav .active a{
+    color: #FF001C;
+}
+
+.nav li a {
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline;
+}
