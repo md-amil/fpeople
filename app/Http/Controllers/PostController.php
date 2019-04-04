@@ -17,7 +17,12 @@ class PostController extends Controller
         $posts = Post::latest()->with('user')->with(['comments' => function($q) {
             $q->latest();
         }])->with('comments.user')->active()->paginate();
+
         return view('posts.index', compact('posts'));
+    }
+    public function home(){
+        $posts = Post::latest()->take(10)->get();
+        return view('posts.home',compact('posts'));
     }
 
     /**
@@ -27,6 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
+        // dd('done');
         return view('posts.create');
     }
 
