@@ -1,10 +1,10 @@
 body {
-background-color:#f1f1f1;
+background-color:#ccc;
 }
 .main-nav {
   background-color :#fff;
   padding: 5px;
-  sborder-bottom: 1px solid #403c3c12;
+  border-bottom: 1px solid #403c3c12;
 }
 
 .icon li {
@@ -58,13 +58,12 @@ background-color:#f1f1f1;
   color: #fff;
 }
 .div-post {
-    background-color: #fff;
+      background-color: #fff;
     margin-top: 90px;
-    padding: 31px;
-    border-radius: 11px;
+    padding: 29px 31px 5px;
     font-family: sans-serif;
     font-size: 17px;
-    text-align: center;
+    border: 1px solid #0a0a0a42;
 }
 .div-post>p {
     color: #5d5959;
@@ -74,4 +73,12 @@ background-color:#f1f1f1;
 }
 .div-post>h3 {
        color: #5f5959;    
+}
+
+
+.div-post>hr {
+  color: #000;
+}
+.like-secssion {
+  text-align: center;
 }

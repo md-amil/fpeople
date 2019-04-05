@@ -3,10 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
-            
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-8 offset-md-2">
             <div class="div-post">
                 <h1>This is the part of blogs</h1>
                 <h3>This is the title of the posts</h3>
@@ -16,10 +13,19 @@
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-        <div class="col-md-2">
-            
+                <hr />
+                    <div class="like-secssion row">
+                    <div class="col-md-4">
+                        like
+                    </div>
+                    <div class="col-md-4">
+                        comment
+                    </div>
+                    <div class="col-md-4">
+                        share
+                    </div>
+                </div>
+            <hr />
         </div>
     </div>
 </div>
