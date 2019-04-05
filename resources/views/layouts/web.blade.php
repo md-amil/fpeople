@@ -10,6 +10,44 @@
     <title>Posts</title>
 </head>
 <body>
+    <header id="header" class="">
+        <div class="main-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <span class="india bee-icon-india-map"></span>
+                    </div> 
+                    <div class="col-md-10">
+                        <ul class="icon">
+                            <li>
+                                <div class="login">
+                                    <span class="bee-icon-arrow-square-right-0"></span>
+                                    <a href="../login.php" title="">login</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="register">
+                                    <span class="user bee-icon-stamp"></span>
+                                    <a href="../register.php" title="">Registerd</a>
+                                </div>
+                            </li>
+{{--                             <li>    
+                                <span class="bee-icon-arrow-square-left-o"></span>
+                                <a href="../lougout.php" title="">lougout</a>
+                            </li> --}}
+                        </ul>
+                        <ul class="nav navbar-nav">  
+                            <li class="active"><a href="../index.php" title="">Home</a></li>
+                            <li><a href="../forms/submit_form.php" title="">Submit</a></li>
+                            <li><a href="../db/show.php" title="">blogs</a></li>
+                            <li><a href="" title="">contacts</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
     @yield('content')
     <script src="/js/app.js"></script>
 </body>

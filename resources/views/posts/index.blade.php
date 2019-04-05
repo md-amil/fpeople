@@ -3,8 +3,12 @@
     <div class="container">
         <div class="blog-div">
             <h1>This is simple blog posts</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            <h2>tlsjaslkdfjlajds</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
             Perferendis cum nostrum optio vitae assumenda maiores placeat, beatae tempora pariatur id temporibus eum necessitatibus totam minus, voluptatem a quae. Dignissimos, quisquam?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+       
+            </p>
         </div>
     </div>
 

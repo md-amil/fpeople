@@ -1,45 +1,42 @@
 body {
 background-color:#f1f1f1;
 }
-.contact li {
-    display: inline-block;
-    margin-right:15px;
-    padding: 5px;
-    margin-top: 4px;
-    font-size: 15px;
-    margin-bottom: -7px;
-} 
+.main-nav {
+  background-color :#fff;
+  padding: 5px;
+  sborder-bottom: 1px solid #403c3c12;
+}
 
 .icon li {
     display: inline-block;
     padding: 5px;
-    margin-top: 4px;
     font-size: 16px;
     margin-bottom: -7px;
     list-style: none;
+    color: #000;
 }
 .icon {
-    margin-left: 207px;
-    position: absolute;
-    margin-top: 21px;
-
-    
+    margin-left: 639px;
+    position: absolute; 
+    margin-top: 7px;
 }
+
 .icon  li  a {
-  color: #000;
+  color: #00000085;
   font-size: 16px;
   font-weight: bold;
 }
+
 .india {
      font-size: 46px;
-     color: #483c41;
+     color: #000;
+}
 
-} 
 .nav  {
     list-style-type: none;
-    margin: 17px;
     position: absolute;
     flex-direction: row;
+    margin-left: 399px;   
 }
 
 .nav > li {
@@ -52,8 +49,29 @@ background-color:#f1f1f1;
 }
 
 .nav li a {
-    color: #000;
+    color: #00000085;
     font-size: 16px;
     font-weight: bold;
     display: inline;
+}
+.nav li a:hover {
+  color: #fff;
+}
+.div-post {
+    background-color: #fff;
+    margin-top: 90px;
+    padding: 31px;
+    border-radius: 11px;
+    font-family: sans-serif;
+    font-size: 17px;
+    text-align: center;
+}
+.div-post>p {
+    color: #5d5959;
+}
+.div-post>h1 {
+  font-family: italic;
+}
+.div-post>h3 {
+       color: #5f5959;    
 }
