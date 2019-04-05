@@ -27,7 +27,7 @@
                             </li>
                             <li>
                                 <div class="register">
-                                    <span class="user bee-icon-stamp"></span>
+                                    <span class="user-icon bee-icon-stamp"></span>
                                     <a href="../register.php" title="">Registerd</a>
                                 </div>
                             </li>

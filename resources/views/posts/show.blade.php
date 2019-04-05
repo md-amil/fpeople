@@ -5,9 +5,11 @@
                 <div class="col-md-12">
                    <div class="show-post">
                        <h3 class="title">{{$post->title}}</h3>
-                       <div class="author-img"><img src="img" alt=""></div>
-                       <div class="author-name">{{ $post->user->name }}
-                            <div><time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
+                       <div class="img-user-time">
+                           <div class="author-img"><img src="img" alt=""></div>
+                           <div class="author-name">{{ $post->user->name }}
+                                <div><time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
+                           </div>
                        </div>
                        <div class="description"><p>{{$post->post}}</p></div>
                         @if($post->comments->count() > 0)
