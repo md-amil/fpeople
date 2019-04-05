@@ -51,6 +51,7 @@ class PostController extends Controller
         $post = new Post();
         $post->title=$request->title;
         $post->description = $request->description;
+        $post->save();
     }
 
     /**
@@ -61,6 +62,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        // return $post;
         return view('posts.show', compact('post'));
     }
 

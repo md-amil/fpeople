@@ -1,68 +1,35 @@
 @extends('layouts.web')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="div-post">
-                <h1>This is the part of blogs</h1>
-                <h3>This is the title of the posts</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <hr />
-                    <div class="like-secssion row">
-                    <div class="col-md-4">
-                        like
+    <div class="container">
+        <div class="row">
+            @foreach($posts as $post)
+            <div class="col-md-8 offset-md-2">
+                <div class="home-post">
+                    <h4><strong>{{ $post->id }}: </strong>{{$post->title}}</h4>
+                    <div class="text-left">{{ $post->user->name }} <time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
+                    <div class="excerpt">
+                        <p>{{ $post->excerpt }}</p>
+                        <form action="">
+                            <label for="comment"></label>
+                            <input type="text" name="comment" placeholder="write a comment...">
+                            <input class="btn btn-primary" type="submit" value="comment">
+                        </form>
                     </div>
-                    <div class="col-md-4">
-                        comment
-                    </div>
-                    <div class="col-md-4">
-                        share
-                    </div>
-                </div>
-            <hr />
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-    <a  class="btn btn-primary" href="{{route('posts.index')}}">show all posts</a>
-    @foreach($posts as $post)
-        <div>
-            <div><strong>{{ $post->id }}: <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></strong></div>
-            <div>{{ $post->excerpt }}</div>
-            <div class="text-right">{{ $post->user->name }} <time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
-            @if($post->comments->count() > 0)
-            <div class="card">
-                <div class="card-body">
-                    @foreach($post->comments as $comment)
-                        <div>{{ $comment->comment }}
-                            <small class="text-muted text-right">{{ $comment->user->name }}</small>
+                    @if($post->comments->count() > 0)
+                    <div class="card">
+                        <div class="card-body">
+                            @foreach($post->comments as $comment)
+                                <small class="text-muted text-left">{{ $comment->user->name }}</small>
+                                <div>{{ $comment->comment }}
+                                </div>
+                            @endforeach
                         </div>
-                    @endforeach
+                    </div>
+                    @endif
                 </div>
             </div>
-            @endif
-            <hr class="hr" />
+        @endforeach
         </div>
-    @endforeach
-</div>
+    </div>
 @endsection
