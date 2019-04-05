@@ -51,6 +51,7 @@ class PostController extends Controller
         $post = new Post();
         $post->title=$request->title;
         $post->description = $request->description;
+        $post->save();
     }
 
     /**

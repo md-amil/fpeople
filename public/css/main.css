@@ -1,10 +1,10 @@
 body {
-background-color:#f1f1f1;
+background-color:#ccc;
 }
 .main-nav {
   background-color :#fff;
   padding: 5px;
-  sborder-bottom: 1px solid #403c3c12;
+  border-bottom: 1px solid #403c3c12;
 }
 
 .icon li {
