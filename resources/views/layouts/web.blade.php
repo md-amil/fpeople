@@ -22,13 +22,13 @@
                             <li>
                                 <div class="login">
                                     <span class="bee-icon-arrow-square-right-0"></span>
-                                    <a href="../login.php" title="">login</a>
+                                    <a href="/login" title="">login</a>
                                 </div>
                             </li>
                             <li>
                                 <div class="register">
                                     <span class="user-icon bee-icon-stamp"></span>
-                                    <a href="../register.php" title="">Registerd</a>
+                                    <a href="/register" title="">Registerd</a>
                                 </div>
                             </li>
 {{--                             <li>    
@@ -39,7 +39,7 @@
                         <ul class="nav navbar-nav">  
                             <li class="active"><a href="../index.php" title="">Home</a></li>
                             <li><a href="../forms/submit_form.php" title="">Submit</a></li>
-                            <li><a href="../db/show.php" title="">blogs</a></li>
+                            <li><a href="/posts" title="">blogs</a></li>
                             <li><a href="" title="">contacts</a></li>
                         </ul>
                     </div>
@@ -47,8 +47,14 @@
             </div>
         </div>
     </header>
-
     @yield('content')
+    <script src="/js/jquery.min.css"></script>
     <script src="/js/app.js"></script>
+    <script>
+        $('#btn-write-comment').click(function(e) {
+            e.preventDefault();
+            $('#write-comment').slideToggle();
+        })
+    </script>
 </body>
 </html>

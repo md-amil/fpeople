@@ -12,6 +12,11 @@
                            </div>
                        </div>
                        <div class="description"><p>{{$post->post}}</p></div>
+                       <div class="action text-right"><a id="btn-write-comment" href="">Comment</a></div>
+                       <form style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
+                           <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
+                           <button type="submit" class="btn btn-primary">Post Comment</button>
+                       </form>
                         @if($post->comments->count() > 0)
                         <div class="card">
                             <div class="card-body">
@@ -30,4 +35,5 @@
                 </div>
             </div>
         </div>
+
     @endsection
