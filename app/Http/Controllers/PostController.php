@@ -12,6 +12,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('auth', ['except' => ['index', 'show','home']]);
+    }
     public function index()
     {
         $posts = Post::latest()->with('user')->with(['comments' => function($q) {

@@ -10,7 +10,6 @@
                     <h1></h1>
                     <h4><strong>{{ $post->id }}: </strong>{{$post->title}}</h4>
                     <div class="text-left">{{ $post->user->name }} <time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
-
                     <p>{{ $post->excerpt }}</p>
                     <form action="">
                         <label for="comment"></label>
@@ -20,21 +19,16 @@
                     @if($post->comments->count() > 0)
                     <div class="card">
                         <div class="card-body">
-                            
                             @foreach($post->comments as $comment)
                                 <small class="text-muted text-left">{{ $comment->user->name }}</small>
-                                <div>{{ $comment->comment }}
-                                    
-                                </div>
+                                <div>{{ $comment->comment }}</div>
                             @endforeach
                         </div>
                     </div>
                     @endif
                 </div>
             </div>
-            
-            
-            @endforeach
+        @endforeach
     </div>
 </div>
 @endsection
