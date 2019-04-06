@@ -13,8 +13,10 @@
                        </div>
                        <div class="description"><p>{{$post->post}}</p></div>
                        <div class="action text-right"><a id="btn-write-comment" href="">Comment</a></div>
-                       <form style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
-                           <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
+                       <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{$post->id}}">
+                            <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
                            <button type="submit" class="btn btn-primary">Post Comment</button>
                        </form>
                         @if($post->comments->count() > 0)

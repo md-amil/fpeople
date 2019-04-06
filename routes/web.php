@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
-
+route::post('/posts/{post}/comments','CommentController@store');
 Route::resource('posts', 'PostController');
 Auth::routes();
 
