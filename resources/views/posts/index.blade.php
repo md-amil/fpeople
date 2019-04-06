@@ -1,48 +1,50 @@
 @extends('layouts.web')
 @section('data')
-    <div class="container">
-        <div class="blog-div">
-            <h1>This is simple blog posts</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Perferendis cum nostrum optio vitae assumenda maiores placeat, beatae tempora pariatur id temporibus eum necessitatibus totam minus, voluptatem a quae. Dignissimos, quisquam?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            </p>
-            <hr />
-            
-             </div>
-            <hr />
-        </div>
-    </div>
-
+  
 @endsection
 
 
 
-
-
 @section('content')
-
-<div class="container">
-    <a href="{{route('posts.create')}}" class="btn btn-default">create post</a>
-    @foreach($posts as $post)
-        <div>
-            <div><strong>{{ $post->id }}: <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></strong></div>
-            <div>{{ $post->excerpt }}</div>
-            <div class="text-right">{{ $post->user->name }} <time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
-            @if($post->comments->count() > 0)
-            <div class="card">
-                <div class="card-body">
-                    @foreach($post->comments as $comment)
-                        <div>{{ $comment->comment }}
-                            <small class="text-muted text-right">{{ $comment->user->name }}</small>
+    <div class="container">
+        <div class="row">
+            @foreach($posts as $post)
+            <div class="col-md-8 offset-md-2">
+                <div class="show-post">
+                       <h3 class="title">{{$post->title}}</h3>
+                       <div class="img-user-time">
+                           <div class="author-img"><img src="img" alt=""></div>
+                           <div class="author-name">{{ $post->user->name }}
+                                <div><time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
+                           </div>
+                       </div>
+                       <div class="description"><p>{{$post->post}}</p></div>
+                       <div class="like-comment-share">
+                           <div class="like-button">Like <span class="glyphicon glyphicon-thumbs-up"></span></div>
+                           <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
+                           <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
+                       </div>
+                       <form style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
+                           <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
+                           <button type="submit" class="btn btn-primary">Post Comment</button>
+                       </form>
+                    <div class="excerpt">
+                        <p>{{ $post->excerpt }}</p>
+                    </div>
+                    @if($post->comments->count() > 0)
+                    <div class="card">
+                        <div class="card-body">
+                            @foreach($post->comments as $comment)
+                                <small class="text-muted text-left">{{ $comment->user->name }}</small>
+                                <div>{{ $comment->comment }}
+                                </div>
+                            @endforeach
                         </div>
-                    @endforeach
+                    </div>
+                    @endif
                 </div>
             </div>
-            @endif
-            <hr class="hr" />
+        @endforeach
         </div>
-    @endforeach
-    {{ $posts->render() }}
-</div>
+    </div>
 @endsection

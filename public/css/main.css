@@ -54,6 +54,8 @@ background-color:#f1f1f1f1;
     font-size: 16px;
     font-weight: bold;
     display: inline;
+    /* margin-top: 6px; */
+    margin-left: -26px;
 }
 .home-post {
     background-color: #fff;
@@ -114,7 +116,7 @@ background-color:#f1f1f1f1;
     font-family: cursive;
     color: #05056b;
 }
-.comment {
+.comment-text {
     display: inline-block;
     margin-top: -34px;
     margin-left: 184px;
@@ -131,8 +133,42 @@ background-color:#f1f1f1f1;
     font-family: italic;
 }
 .description {
-    color: #2b2b2b;
+    color: #585858;
+    font-size: 15px;
 }
 .img-user-time {
 
+}
+.like-comment-share {
+  text-align: center;
+}
+.like-comment-share>div {
+    display: inline-block;
+    text-align: center;
+    padding: 17px;
+}
+.text-right {
+    text-align: right!important;
+    position: relative;
+    width: 93%;
+    margin-left: 20px;
+}
+.form-control {
+     border-radius: 31px;
+    font-size: 14px;
+    padding: 0px;
+    padding-left: 22px;
+}
+.form-control:placeholder{
+  margin-left: 10px;;
+
+}
+.like-button {
+   float: left;
+   margin-left: 19px;
+}
+.share-button {
+    float: right;
+    margin-right: 33px;
+        
 }

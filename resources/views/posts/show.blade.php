@@ -23,7 +23,7 @@
                                 @foreach($post->comments as $comment)
                                 <div class="comment-sec">
                                     <div class="user">{{ $comment->user->name }}:</div>
-                                    <div class="comment">{{ $comment->comment }}
+                                    <div class="comment-text">{{ $comment->comment }}
                                       <hr />
                                     </div>
                                 </div>
