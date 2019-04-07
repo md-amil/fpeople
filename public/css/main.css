@@ -145,7 +145,7 @@ background-color:#f1f1f1f1;
 .like-comment-share>div {
     display: inline-block;
     text-align: center;
-    padding: 17px;
+   
 }
 .text-right {
     text-align: right!important;
@@ -159,10 +159,7 @@ background-color:#f1f1f1f1;
     padding: 0px;
     padding-left: 22px;
 }
-.form-control:placeholder{
-  margin-left: 10px;;
 
-}
 .like-button {
    float: left;
    margin-left: 19px;
@@ -171,4 +168,13 @@ background-color:#f1f1f1f1;
     float: right;
     margin-right: 33px;
         
+}
+.glyphicon {
+    margin: 10px;
+}
+.hr-like-upper {
+ color: #000;
+}
+.hr-like-lower {
+color: #000;
 }
