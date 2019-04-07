@@ -24,8 +24,9 @@
                            <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
                            <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
                        </div>
-                       <form style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
-                           <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
+                       <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
+                            @csrf
+                            <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
                            <button type="submit" class="btn btn-primary">Post Comment</button>
                        </form>
                     <div class="excerpt">
