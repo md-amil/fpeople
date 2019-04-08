@@ -23,13 +23,14 @@
                             <li>
                                 <div class="login">
                                     <span class="bee-icon-arrow-square-right-0"></span>
-                                    <a href="/login" title="">login</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="register">
-                                    <span class="user-icon bee-icon-stamp"></span>
-                                    <a href="/register" title="">Registerd</a>
+                                    @if(auth()->check())
+                                        <form action="/logout" method="POST">
+                                            @csrf
+                                            <input type="submit" value="logout">
+                                        </form>
+                                    @else
+                                        <a href="/login" title="">Login & Register</a>
+                                    @endif
                                 </div>
                             </li>
 {{--                             <li>    
@@ -51,11 +52,13 @@
     @yield('content')
     <script src="/js/jquery.min.css"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/handlebars-v4.1.1.js"></script>
     <script>
         $('#btn-write-comment').click(function(e) {
             e.preventDefault();
             $('#write-comment').slideToggle();
         })
     </script>
+     @yield('scripts')
 </body>
 </html>

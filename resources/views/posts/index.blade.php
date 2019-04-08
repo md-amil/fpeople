@@ -8,28 +8,33 @@
             @foreach($posts as $post)
             <div class="col-md-8 offset-md-2">
                 <div class="show-post">
-                       <h3 class="title">{{$post->title}}</h3>
-                       <div class="img-user-time">
-                           <div class="author-img"><img src="img" alt=""></div>
-                           <div class="author-name">{{ $post->user->name }}
-                                <div><time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
-                           </div>
-                       </div>
-                       <div class="description"><p>{{$post->post}}</p></div>
-                       <div class="like-comment-share">
-                           <div class="like-button">Like <span class="glyphicon glyphicon-thumbs-up"></span></div>
-                           <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
-                           <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
-                       </div>
-                       <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
-                            @csrf
-                            <input type="hidden" name="post_id" value="{{$post->id}}">
-                            <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
-                           <button type="submit" class="btn btn-primary">Post Comment</button>
-                       </form>
-                    <div class="excerpt">
+                   <h3 class="title"><a href="{{route('posts.show',$post)}}" title="">{{$post->title}}</a></h3>
+                   <div class="excerpt">
                         <p>{{ $post->excerpt }}</p>
                     </div>
+                   <div class="img-user-time">
+                       <div class="author-img"><img src="img" alt=""></div>
+                       <div class="author-name">{{ $post->user->name }}
+                            <div><time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
+                       </div>
+
+                   </div>
+                   <div class="description"><p>{{$post->post}}</p></div>
+                   <div class="hr-like-upper"></div>
+                   <div class="like-comment-share">
+                       <div class="like-button"><a  id="btn-add-like" href="">Like</a><span class="glyphicon glyphicon-thumbs-up"></span></div>
+                       <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
+                       <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
+                   </div>
+                    <div class="hr-like-lower"></div>
+                   <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
+                        @csrf   
+                        <input type="hidden" name="post_id" value="{{$post->id}}">
+                        <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
+                       <button type="submit" class="btn btn-primary">Post Comment</button>
+                   </form>
+                  
+                    
                     @if($post->comments->count() > 0)
                     <div class="card">
                         <div class="card-body">
@@ -46,4 +51,15 @@
         @endforeach
         </div>
     </div>
+@endsection
+@section('script')
+
+<script>
+   (function() {
+     $('#btn-add-like').on('click', function(e) {
+       e.preventDefault();
+       console.log("lidsklfaj");
+     });
+   })();
+</script>
 @endsection
