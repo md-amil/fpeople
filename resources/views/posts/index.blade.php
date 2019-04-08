@@ -2,9 +2,6 @@
 @section('data')
   
 @endsection
-
-
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -26,6 +23,7 @@
                        </div>
                        <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
                             @csrf
+                            <input type="hidden" name="post_id" value="{{$post->id}}">
                             <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
                            <button type="submit" class="btn btn-primary">Post Comment</button>
                        </form>
