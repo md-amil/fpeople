@@ -16,13 +16,14 @@
                        <div class="like-comment-share">
                            <div class="like-button {{ $post->hasLike ? 'liked' : '' }}"><a id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
                            <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
+                           <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
                            <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
                                 @csrf
                                 <input type="hidden" name="post_id" value="{{$post->id}}">
                                 <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
                                <button type="submit" class="btn btn-primary">Post Comment</button>
                            </form>
-                           <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
+                           
                        </div>
                         <div class="hr-like-lower"></div>
                         <div id="comment-container"></div>
