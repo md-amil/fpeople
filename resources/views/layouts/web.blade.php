@@ -51,11 +51,13 @@
     @yield('content')
     <script src="/js/jquery.min.css"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/handlebars-v4.1.1.js"></script>
     <script>
         $('#btn-write-comment').click(function(e) {
             e.preventDefault();
             $('#write-comment').slideToggle();
         })
     </script>
+     @yield('scripts')
 </body>
 </html>

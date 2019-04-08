@@ -19,23 +19,40 @@
                             <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
                            <button type="submit" class="btn btn-primary">Post Comment</button>
                        </form>
-                        @if($post->comments->count() > 0)
-                        <div class="card">
-                            <div class="card-body">
-                                @foreach($post->comments as $comment)
-                                <div class="comment-sec">
-                                    <div class="user">{{ $comment->user->name }}:</div>
-                                    <div class="comment-text">{{ $comment->comment }}
-                                      <hr />
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        @endif
+                        <div id="comment-container"></div>
                    </div>
                 </div>
             </div>
         </div>
-
+<script type="text/handlerbar" id="comments-template">
+  @include('posts.comments-tpl');
+</script>
+  
+</template>
     @endsection
+
+@section('scripts')
+<script>
+  (function() {
+    var commentTemplate = $('#comments-template').html(),
+      comments = {!!$post->comments()->latest()->with('user')->get()!!};
+     function addComments() {
+      commentsData = Handlebars.compile(commentTemplate)({comments: comments});
+       $('#comment-container').html(commentsData);
+    }
+
+    addComments();
+
+    $('#write-comment').submit(function(e) {
+      e.preventDefault();
+      var form = this;
+      $.post($(this).attr('action'), $(this).serialize(), function(res) {
+         comments.unshift(res);
+         addComments();
+         form.reset();
+      })
+    })
+
+  })();
+</script>
+@endsection
