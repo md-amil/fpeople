@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -50,14 +52,20 @@
         </div>
     </header>
     @yield('content')
-    <script src="/js/jquery.min.css"></script>
     <script src="/js/app.js"></script>
     <script src="/js/handlebars-v4.1.1.js"></script>
     <script>
         $('#btn-write-comment').click(function(e) {
             e.preventDefault();
             $('#write-comment').slideToggle();
-        })
+        });
+
+        (function() {
+            $('.like-button').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass('liked');
+            });
+        })();
     </script>
      @yield('scripts')
 </body>

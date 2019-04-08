@@ -84,13 +84,14 @@ background-color:#f1f1f1f1;
     margin-left: 39px;
 }
 .show-post {
-    background-color: #fff;
+        background-color: #fff;
     margin-top: 20px;
-    padding: 30px 31px 0px 35px;
+    padding: 30px 31px 9px 35px;
     font-family: sans-serif;
     font-size: 17px;
     border: 1px solid #7575753d;
     border-radius: 4px;
+
 }
 .author-img {
     background-color: #ff2020;
@@ -152,9 +153,14 @@ background-color:#f1f1f1f1;
     text-align: center;
    
 }
-#btn-write-comment {
+.like-button.liked a {
+  color: blue;
+  font-weight: bold;
+}
+.like-button a {
  color: #545454e8;
 }
+
 .text-right {
     text-align: right!important;
     position: relative;
