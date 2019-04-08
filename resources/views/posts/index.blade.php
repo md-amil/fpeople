@@ -22,10 +22,10 @@
                        </div>
 
                    </div>
-                   <div class="description"><p>{{$post->post}}</p></div>
+                   
                    <div class="hr-like-upper"></div>
                    <div class="like-comment-share">
-                       <div class="like-button"><a  id="btn-add-like" href="">Like</a><span class="glyphicon glyphicon-thumbs-up"></span></div>
+                       <div class="like-button {{ $post->hasLike ? 'liked' : '' }}"><a id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
                        <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
                        <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
                    </div>
@@ -34,8 +34,6 @@
                        <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
                        <button type="submit" class="btn btn-primary">Post Comment</button>
                    </form>
-                  
-                    
                     @if($post->comments->count() > 0)
                     <div class="card">
                         <div class="card-body">
@@ -44,6 +42,9 @@
                                 <div>{{ $comment->comment }}
                                 </div>
                             @endforeach
+                        </div>
+                        <div>
+                          
                         </div>
                     </div>
                     @endif

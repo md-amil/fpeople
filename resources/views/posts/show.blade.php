@@ -12,6 +12,13 @@
                            </div>
                        </div>
                        <div class="description"><p>{{$post->post}}</p></div>
+                       <div class="hr-like-upper"></div>
+                       <div class="like-comment-share">
+                           <div class="like-button {{ $post->hasLike ? 'liked' : '' }}"><a id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
+                           <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
+                           <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
+                       </div>
+                        <div class="hr-like-lower"></div>
                        <div class="action text-right"><a id="btn-write-comment" href="">Comment</a></div>
                        <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
                             @csrf
@@ -25,7 +32,7 @@
             </div>
         </div>
 <script type="text/handlerbar" id="comments-template">
-  @include('posts.comments-tpl');
+  @include('posts.comments-tpl')
 </script>
   
 </template>
@@ -34,10 +41,10 @@
 @section('scripts')
 <script>
   (function() {
-    var commentTemplate = $('#comments-template').html(),
+    var commentTemplate = Handlebars.compile($('#comments-template').html()),
       comments = {!!$post->comments()->latest()->with('user')->get()!!};
      function addComments() {
-      commentsData = Handlebars.compile(commentTemplate)({comments: comments});
+      commentsData = commentTemplate({comments: comments});
        $('#comment-container').html(commentsData);
     }
 
