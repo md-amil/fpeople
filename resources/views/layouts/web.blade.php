@@ -24,14 +24,15 @@
                         <ul class="icon">
                             <li>
                                 <div class="login">
-                                    <span class="bee-icon-arrow-square-right-0"></span>
-                                    <a href="/login" title="">login</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="register">
-                                    <span class="user-icon bee-icon-stamp"></span>
-                                    <a href="/register" title="">Registerd</a>
+                                    
+                                    @if(auth()->check())
+                                        <form action="/logout" method="POST">
+                                            @csrf
+                                            <input type="submit" value="logout" class="input-logout">
+                                        </form>
+                                    @else
+                                        <a href="/login" title="">Login & Register</a>
+                                    @endif
                                 </div>
                             </li>
 {{--                             <li>    

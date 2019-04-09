@@ -21,12 +21,11 @@
                                 @csrf
                                 <input type="hidden" name="post_id" value="{{$post->id}}">
                                 <textarea name="comment" class="form-control" placeholder="Write your comment"></textarea>
-                               <button type="submit" class="btn btn-primary">Post Comment</button>
+                                <button type="submit" class="btn btn-primary">Post Comment</button>
                            </form>
-                           
                        </div>
-                        <div class="hr-like-lower"></div>
-                        <div id="comment-container"></div>
+                       <div class="hr-like-lower"></div>
+                       <div id="comment-container"></div>
                    </div>
                 </div>
             </div>
@@ -34,8 +33,7 @@
 <script type="text/handlerbar" id="comments-template">
   @include('posts.comments-tpl')
 </script>
-  
-</template>
+ 
     @endsection
 
 @section('scripts')
