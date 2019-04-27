@@ -14,17 +14,9 @@ Route::get('/api/posts',function(){
     return Post::latest()->take(10)->get();
 });
 
-
-
-
-
 Route::get('/', 'HomeController@index');
-
 Route::resource('posts', 'PostController');
-route::post('/posts/{post}/comments','CommentController@store');
-Route::post('/posts/{post}/like','VoteController@store');
-
+route::post('/posts/{post}/comments', 'CommentController@store');
+Route::post('/posts/{post}/like', 'VoteController@store');
 Auth::routes();
-
-
 Route::get('/home', 'HomeController@index')->name('home');

@@ -23,7 +23,7 @@ $('#btn-add-like').on('click', function(e) {
                           </form>
                            <div class="like-button {{ $post->hasLike ? 'liked' : '' }}"><a id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
                            <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
-                           <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
+                          <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
                        </div>
                         <div class="hr-like-lower"></div>
                        <div class="action text-right"><a id="btn-write-comment" href="">Comment</a></div>
