@@ -42,7 +42,7 @@
                         </ul>
                         <ul class="nav navbar-nav">  
                             <li class="active"><a href="../index.php" title="">Home</a></li>
-                            <li><a href="../forms/submit_form.php" title="">Submit</a></li>
+                            <li><a href="/posts/create" title="">Submit</a></li>
                             <li><a href="/posts" title="">blogs</a></li>
                             <li><a href="" title="">contacts</a></li>
                         </ul>

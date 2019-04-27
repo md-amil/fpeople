@@ -10,11 +10,6 @@
                     <div class="text-left">{{ $post->user->name }} <time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
                     <div class="excerpt">
                         <p>{{ $post->excerpt }}</p>
-                        <form action="">
-                            <label for="comment"></label>
-                            <input type="text" name="comment" placeholder="write a comment...">
-                            <input class="btn btn-primary" type="submit" value="comment">
-                        </form>
                     </div>
                     @if($post->comments->count() > 0)
                     <div class="card">
@@ -31,4 +26,15 @@
             </div>
         @endforeach
     </div>
+</div>
+<button type="">jquery testing</button>
+<script>
+(function() {
+  $('button').on('click', function() {
+      console.log("sldjfasld");
+  })
+})();
+
+</script>
 @endsection
+

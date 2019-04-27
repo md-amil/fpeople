@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Vote;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class VoteController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -24,7 +25,7 @@ class VoteController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,16 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = Post::find($request->post_id);
+        $vote = $post->votes()->where('user_id', auth()->id())->first();
+        if($vote) {
+            $vote->delete();
+        } else {
+            $post->votes()->save(new Vote([
+                'user_id' => $request->user()->id
+            ]));
+        }
+        return back();
     }
 
     /**
