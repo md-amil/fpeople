@@ -28,4 +28,9 @@ class Post extends Model
     {
         return $this->hasMany(Vote::class);
     }
+
+    public function vote()
+    {
+        return $this->hasOne(Vote::class);
+    }
 }

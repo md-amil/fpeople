@@ -66,6 +66,9 @@ class PostController extends Controller
     public function show(Post $post)
     {
         // return $post;
+        $post->load(['vote' => function($q) {
+            $q->mine();
+        }]);
         return view('posts.show', compact('post'));
     }
 

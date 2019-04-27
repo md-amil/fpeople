@@ -14,6 +14,11 @@
                        <div class="description"><p>{{$post->post}}</p></div>
                        <div class="hr-like-upper"></div>
                        <div class="like-comment-share">
+                          <form action="/posts/{post}/like" method="POST">
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{$post->id}}">
+                            <input type="submit" value="{{ $post->vote ? 'Unlike' : 'Like' }}">
+                          </form>
                            <div class="like-button {{ $post->hasLike ? 'liked' : '' }}"><a id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
                            <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
                            <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
