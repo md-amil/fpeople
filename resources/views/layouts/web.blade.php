@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="/css/app.css" />
     <link rel="stylesheet" href="http://beeknock.com/tools/bee-icon/beeicon-font.css" />
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <style>
+        body {
+            font-size: 14px;
+        }
+    </style>
     <title>Posts</title>
 </head>
 <body>
@@ -52,6 +57,7 @@
         </div>
     </header>
     @yield('content')
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/handlebars-v4.1.1.js"></script>
     <script>

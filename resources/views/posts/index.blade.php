@@ -24,3 +24,17 @@
         </div>
     </div>
 @endsection
+<<<<<<< HEAD
+=======
+@section('script')
+
+<script>
+   (function() {
+    $('#btn-add-like').on('click', function(e) {
+       e.preventDefault();
+       console.log("lidsklfaj");
+     });
+   })();
+</script>
+@endsection
+>>>>>>> 69f0fabbafcdc9a1664db03d31ad8ef83710bfae

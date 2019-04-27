@@ -1,7 +1,8 @@
 @extends('layouts.web')
 
 @section('content')
-    <div class="container">
+
+   {{--  <div class="container">
         <div class="row">
             @foreach($posts as $post)
             <div class="col-md-8 offset-md-2">
@@ -24,17 +25,27 @@
                     @endif
                 </div>
             </div>
-        @endforeach
-    </div>
-</div>
-<button type="">jquery testing</button>
-<script>
-(function() {
-  $('button').on('click', function() {
-      console.log("sldjfasld");
-  })
-})();
+        @endforeach --}}
 
-</script>
+    <div id="main-content"></div>
+@endsection
+
+@section('scripts')
+<script>
+    $.ajax({
+        url: "/api/posts",
+        success: function(result) {
+            result.forEach(function(element) {
+                $('#main-content').append(showPost(element));
+            });
+        }});
+      function showPost(post) {
+        return `
+        <div> ${post.title} </div>
+        <div>${post.post}</div>
+        <div> ${post.id}</div>
+        `
+      }
+    </script>
 @endsection
 

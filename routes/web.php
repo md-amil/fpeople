@@ -1,5 +1,5 @@
 <?php
-
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,8 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/api/posts',function(){
+    return Post::latest()->take(10)->get();
+});
+
+
+
+
 
 Route::get('/', 'HomeController@index');
+
 Route::resource('posts', 'PostController');
 route::post('/posts/{post}/comments','CommentController@store');
 Route::post('/posts/{post}/like','VoteController@store');
