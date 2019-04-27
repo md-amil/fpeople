@@ -41,7 +41,6 @@ class CommentController extends Controller
         $comment->comment = $request->comment;
         $comment->load('user');
         $comment->save();
-        return $comment;
         return back();
     }
 

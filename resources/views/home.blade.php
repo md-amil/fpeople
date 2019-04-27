@@ -1,4 +1,5 @@
-@extends('layouts.app')
+$('#btn-add-like').on('click', function(e) {
+    @extends('layouts.app')
 
 @section('content')
 <div class="container">

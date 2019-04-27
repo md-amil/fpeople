@@ -1,4 +1,5 @@
-@extends('layouts.web')
+$('#btn-add-like').on('click', function(e) {
+    @extends('layouts.web')
 @section('content')
 <form action="{{ route('posts.store') }}" method="POST">
         @csrf

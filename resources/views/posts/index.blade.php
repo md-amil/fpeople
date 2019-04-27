@@ -57,7 +57,7 @@
 
 <script>
    (function() {
-     $('#btn-add-like').on('click', function(e) {
+    $('#btn-add-like').on('click', function(e) {
        e.preventDefault();
        console.log("lidsklfaj");
      });

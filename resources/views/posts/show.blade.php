@@ -1,4 +1,6 @@
-@extends('layouts.web')
+$('#btn-add-like').on('click', function(e) {
+  $('#btn-add-like').on('click', function(e) {
+    @extends('layouts.web')
     @section('content')
         <div class="container">
             <div class="row">
@@ -65,6 +67,14 @@
       })
     })
 
+    $('btn-add-like').on('click',function(){
+      $.ajax([
+        url:'/post/like',
+        method:'post',
+        data:[post_id,user_id,]
+      ])
+
+    })
   })();
 </script>
 @endsection
