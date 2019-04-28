@@ -11,9 +11,14 @@ use App\Post;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
 Route::get('/api/posts', function () {
-    return Post::latest()->with('user', 'comments.user')->take(10)->get();
+    return Post::latest()->with('user', 'comments')->get();
 });
+
+
 Route::get('/', 'HomeController@index');
 Route::resource('posts', 'PostController');
 route::post('/posts/{post}/comments', 'CommentController@store');

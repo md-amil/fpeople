@@ -24,8 +24,7 @@
         </div>
     </div>
 @endsection
-<<<<<<< HEAD
-=======
+
 @section('script')
 
 <script>
@@ -37,4 +36,4 @@
    })();
 </script>
 @endsection
->>>>>>> 69f0fabbafcdc9a1664db03d31ad8ef83710bfae
+

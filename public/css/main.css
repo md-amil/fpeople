@@ -257,6 +257,14 @@ body {
     font-family: sans-serif;
     font-size: 17px;
     border: 1px solid #7575753d;
-    border-radius: 4px;
+    border-radius: 4px; 
+}
+.inside-content {
+   border: 1px solid black;
+}
+.home-image  {
+    height: 10px;
+    width: 10px;
+    background: 10px;
 }
 
