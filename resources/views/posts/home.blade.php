@@ -1,7 +1,6 @@
 @extends('layouts.web')
 
 @section('content')
-
    {{--  <div class="container">
         <div class="row">
             @foreach($posts as $post)
@@ -27,25 +26,23 @@
             </div>
         @endforeach --}}
 
-    <div id="main-content"></div>
+    <div class="container">
+        <div class="row">
+            <div id="main-content"></div>
+        </div>
+    </div>
 @endsection
-
 @section('scripts')
+<script type="text/html" id="tpl-posts">
+    @include('posts.posts-hbs')
+</script>
 <script>
+    var tplPosts = Handlebars.compile($('#tpl-posts').html());
     $.ajax({
         url: "/api/posts",
         success: function(result) {
-            result.forEach(function(element) {
-                $('#main-content').append(showPost(element));
-            });
+            console.log(result[0].comments[0].user.name)
+            $('#main-content').html(tplPosts({ posts: result }));
         }});
-      function showPost(post) {
-        return `
-        <div> ${post.title} </div>
-        <div>${post.post}</div>
-        <div> ${post.id}</div>
-        `
-      }
     </script>
 @endsection
-
