@@ -11,7 +11,7 @@ use App\Post;
 |
 */
 Route::get('/api/posts',function(){
-    return Post::latest()->take(10)->get();
+    return Post::latest()->with('user','comments')->get();
 });
 
 Route::get('/', 'HomeController@index');
