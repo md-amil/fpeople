@@ -1,24 +1,33 @@
-$('#btn-add-like').on('click', function(e) {
-    @extends('layouts.web')
+ @extends('layouts.web')
 @section('content')
-<form action="{{ route('posts.store') }}" method="POST">
-        @csrf
-        <div class="form-controle">
-            <div class="form-group">
-                <label for="title">title</label>
-                <input type="text" name="title" required>
-            </div>
-            <div class="form-group">
-                <label for="exerpt">exerpt</label>
-                <input type="text" name="exerpt" required>
-            </div>
-            <div class="form-group">
-                <label for="description">description</label>
-                <input type="text" name="description">
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-default" value="create"> 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header">
+                        Submit
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('posts.store') }}" method="POST">
+                            @csrf
+                            <div class="form-controle">
+                                <div class="form-group">
+                                    <input type="text" name="title" class="form-input" placeholder="Title" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="exerpt" class="form-input" placeholder="Exerpt" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="description" class="form-input" placeholder="Description">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn-submit" value="create"> 
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </form>
+    </div>
 @endsection

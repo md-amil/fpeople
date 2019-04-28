@@ -29,11 +29,11 @@
                         <ul class="icon">
                             <li>
                                 <div class="login">
-                                    <span class="bee-icon-arrow-square-right-0"></span>
+                                    
                                     @if(auth()->check())
                                         <form action="/logout" method="POST">
                                             @csrf
-                                            <input type="submit" value="logout">
+                                            <input type="submit" value="logout" class="input-logout">
                                         </form>
                                     @else
                                         <a href="/login" title="">Login & Register</a>
@@ -47,7 +47,7 @@
                         </ul>
                         <ul class="nav navbar-nav">  
                             <li class="active"><a href="../index.php" title="">Home</a></li>
-                            <li><a href="../forms/submit_form.php" title="">Submit</a></li>
+                            <li><a href="/posts/create" title="">Submit</a></li>
                             <li><a href="/posts" title="">blogs</a></li>
                             <li><a href="" title="">contacts</a></li>
                         </ul>
