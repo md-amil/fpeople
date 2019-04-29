@@ -23,5 +23,8 @@ Route::get('/', 'HomeController@index');
 Route::resource('posts', 'PostController');
 route::post('/posts/{post}/comments', 'CommentController@store');
 Route::post('/posts/{post}/like', 'VoteController@store');
+Route::get('logout', 'Auth\LoginController@logout');
+Route::get('/profile', 'ProfileController@profile');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/profile/avatar', 'ProfileController@updateProfile');

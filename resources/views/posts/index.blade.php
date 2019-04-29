@@ -3,37 +3,31 @@
   
 @endsection
 @section('content')
-    <div class="container">
+    
+      <div class="container">
         <div class="row">
-            @foreach($posts as $post)
-            <div class="col-md-8 offset-md-2">
-                <div class="show-post">
-                   <h3 class="title"><a href="{{route('posts.show',$post)}}" title="">{{$post->title}}</a></h3>
-                   <div class="excerpt">
-                        <p>{{ $post->excerpt }}</p>
-                    </div>
-                   <div class="img-user-time">
-                       <div class="author-img"><img src="img" alt=""></div>
-                       <div class="author-name">{{ $post->user->name }}
-                            <div><time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
-                       </div>
-                   </div>
-              </div>
-           </div>    
-        @endforeach
+          <div class="col-md-8 offset-md-2">
+            <div id="index-content">
+               
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+
 @endsection
-
-@section('script')
-
-<script>
-   (function() {
-    $('#btn-add-like').on('click', function(e) {
-       e.preventDefault();
-       console.log("lidsklfaj");
-     });
-   })();
+@section('scripts')
+<script type="text/html" id="tpl-blog">
+   @include('posts.blog-hbs')
 </script>
+  <script>
+    var tplBlog = Handlebars.compile($('#tpl-blog').html());
+     $.ajax({
+       url:"/api/posts",
+       success:function(result) {
+         console.log(result)
+         console.log(result[0].excerpt)
+         $("#index-content").html(tplBlog({posts : result }))
+       }})
+  </script>
 @endsection
 

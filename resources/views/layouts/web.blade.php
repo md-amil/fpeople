@@ -29,26 +29,18 @@
                         <ul class="icon">
                             <li>
                                 <div class="login">
-                                    
                                     @if(auth()->check())
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Dropdown
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                          <a class="dropdown-item" href="/profile">profile</a>
-                                          <a class="dropdown-item" href="/logout">logout</a>
+                                        <div id="some">{{auth()->user()->name}}</div>
+                                        <div class="h-dropdown" id="toggle">
+                                            <a href="/profile">profile</a>
+                                            <a href="/logout">logout</a>
                                         </div>
-                                      </div>
                                     @else
                                         <a href="/login" title="">Login & Register</a>
                                     @endif
                                 </div>
                             </li>
-{{--                             <li>    
-                                <span class="bee-icon-arrow-square-left-o"></span>
-                                <a href="../lougout.php" title="">lougout</a>
-                            </li> --}}
+                       
                         </ul>
                         <ul class="nav navbar-nav">  
                             <li class="active"><a href="../index.php" title="">Home</a></li>
@@ -79,6 +71,10 @@
                 $(this).toggleClass('liked');
             });
         })();
+        $("#some").on("click", function() {
+            console.log("skdfjls")
+            $("#toggle").slideToggle()
+        })
     </script>
      @yield('scripts')
 </body>
