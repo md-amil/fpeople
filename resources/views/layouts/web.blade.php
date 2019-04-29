@@ -31,10 +31,15 @@
                                 <div class="login">
                                     
                                     @if(auth()->check())
-                                        <form action="/logout" method="POST">
-                                            @csrf
-                                            <input type="submit" value="logout" class="input-logout">
-                                        </form>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          Dropdown
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                          <a class="dropdown-item" href="/profile">profile</a>
+                                          <a class="dropdown-item" href="/logout">logout</a>
+                                        </div>
+                                      </div>
                                     @else
                                         <a href="/login" title="">Login & Register</a>
                                     @endif
@@ -47,7 +52,9 @@
                         </ul>
                         <ul class="nav navbar-nav">  
                             <li class="active"><a href="../index.php" title="">Home</a></li>
-                            <li><a href="/posts/create" title="">Submit</a></li>
+                            @if(auth()->user())
+                                <li><a href="/posts/create" title="">create post</a></li>
+                            @endif
                             <li><a href="/posts" title="">blogs</a></li>
                             <li><a href="" title="">contacts</a></li>
                         </ul>
