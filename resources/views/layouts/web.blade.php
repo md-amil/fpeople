@@ -33,11 +33,12 @@
                                     @if(auth()->check())
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Dropdown
+                                          {{ auth()->user()->name }}
+                                          <span class="ceret"></span>
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                           <a class="dropdown-item" href="/profile">profile</a>
-                                          <a class="dropdown-item" href="/logout">logout</a>
+                                          <a class="dropdown-item" href="/logout"></a>
                                         </div>
                                       </div>
                                     @else
