@@ -26,7 +26,7 @@ body {
     margin-top: 7px;
 }
 
-.icon  li  a {
+.icon  li .a {
     color: #00000085;
     font-weight: bold;
     margin-top: -49px;
@@ -34,7 +34,7 @@ body {
     padding: 6px 17px;
     border-radius: 29px;
 }
-.icon  li  a:hover{
+.icon  li .a:hover{
     color: #fff;
     background-color:red;
     border: none;
@@ -48,7 +48,7 @@ body {
     list-style-type: none;
     position: absolute;
     flex-direction: row;
-    margin-left: 399px;   
+    margin-left: 350px;   
 }
 
 .nav > li {
@@ -65,7 +65,7 @@ body {
     font-size: 16px;
     font-weight: bold;
     display: inline;
-    margin-left: -26px;
+    margin-left: -35px;
 }
 .input-logout {
     background-color: #fff;
@@ -266,7 +266,11 @@ body {
   
 }
 #some {
-     background: #f18b8b;
-    margin-left: 19px;
+        /* background: #f18b8b; */
+    margin-left: 6px;
+    /* padding: 3px 8px; */
+    font-weight: 700;
 }
-
+#toggle {
+    background: #000
+}

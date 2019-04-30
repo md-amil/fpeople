@@ -28,17 +28,16 @@
                     <div class="col-md-10">
                         <ul class="icon">
                             <li>
-                                <div class="login">
-                                    @if(auth()->check())
-                                        <div id="some">{{auth()->user()->name}}</div>
-                                        <div class="h-dropdown" id="toggle">
-                                            <a href="/profile">profile</a>
-                                            <a href="/logout">logout</a>
-                                        </div>
-                                    @else
-                                        <a href="/login" title="">Login & Register</a>
-                                    @endif
+                            @if(auth()->check())
+                             <div id="some" class="auth-name">{{auth()->user()->name}}</div>
+                                <div class="h-dropdown" id="toggle">
+                                    <div><a href="/profile">profile</a></div>
+                                    <div><a href="/logout">logout</a></div>
                                 </div>
+                            @else
+                                <a href="/login" title="" class="a">Login & Register</a>
+                            @endif
+                                
                             </li>
                        
                         </ul>
