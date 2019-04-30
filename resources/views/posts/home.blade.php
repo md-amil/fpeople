@@ -1,7 +1,6 @@
 @extends('layouts.web')
 
 @section('content')
-jklejfgfjlk
    {{--  <div class="container">
         <div class="row">
             @foreach($posts as $post)
@@ -40,7 +39,6 @@ jklejfgfjlk
     @include('posts.posts-hbs')
 </script>
 <script>
-    console.log("amil");
     var tplPosts = Handlebars.compile($('#tpl-posts').html());
     $.ajax({
         url: "/api/posts",
@@ -50,5 +48,4 @@ jklejfgfjlk
             $('#main-content').html(tplPosts({ posts: result }));
         }});
  </script>
-
 @endsection
