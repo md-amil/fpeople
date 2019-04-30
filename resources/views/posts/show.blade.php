@@ -4,10 +4,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                   <div class="show-post">
+                   <div class="show-post" id="show-full-post">
                        <h3 class="title">{{$post->title}}</h3>
                        <div class="img-user-time">
-                           <div class="author-img"><img src="img" alt=""></div>
+                           <div class="author-img"><img src="{{$post->user->avatar}}" alt=""></div>
                            <div class="author-name">{{ $post->user->name }}
                                 <div><time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
                            </div>
@@ -15,12 +15,7 @@
                        <div class="description"><p>{{$post->post}}</p></div>
                        <div class="hr-like-upper"></div>
                        <div class="like-comment-share">
-                          <form action="/posts/{post}/like" method="POST">
-                            @csrf
-                            <input type="hidden" name="post_id" value="{{$post->id}}">
-                            <input type="submit" value="{{ $post->vote ? 'Unlike' : 'Like' }}">
-                          </form>
-                           <div class="like-button {{ $post->hasLike ? 'liked' : '' }}"><a id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
+                           <div class="like-button"><a id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
                            <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
                            <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
                            <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
@@ -44,7 +39,7 @@
 
 @section('scripts')
 <script>
-  (function() {
+  (function() {      
     var commentTemplate = Handlebars.compile($('#comments-template').html()),
       comments = {!!$post->comments()->latest()->with('user')->get()!!};
      function addComments() {
@@ -65,13 +60,12 @@
     })
 
     $('btn-add-like').on('click',function(){
-      $.ajax([
+      $.ajax({ 
         url:'/post/like',
         method:'post',
-        data:[post_id,user_id,]
-      ])
-
+        data:[post_id,user_id]
+      });
     })
-  })();
+
 </script>
 @endsection
