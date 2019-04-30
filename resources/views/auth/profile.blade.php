@@ -35,8 +35,9 @@
 <div class="container">
     <div class="row justify-content-center">
             <div class="profile-header-container">
+                <h1>{{$user->name}}'profile</h1>
                 <div class="rank-label-container text-center">
-                    <span class="label label-default rank-label">{{$user->name}}</span>
+                    <span class="label label-default rank-label"></span>
                 </div>
                 <div class="profile-img">
                     <img width="300" height="300" id="avatar-img" src="{{ $user->avatar }}"  />

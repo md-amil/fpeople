@@ -29,19 +29,20 @@
                     <div class="col-md-10">
                         <ul class="icon">
                             <li>
-                                <div class="login">
-                                    @if(auth()->check())
-                                        <div id="some"><img width="50" height="50" id="avatar-img" src="{{ auth()->user()->avatar }}"  /><h1>{{auth()->user()->name}}</h1></div>
+                                @if(auth()->check())
+                                    <div id="some"><img width="50" height="50" id="avatar-img" src="{{ auth()->user()->avatar }}"/>{{auth()->user()->name}}<i class="caret"></i></div>
+                                    <div class="h-dropdown" id="toggle">
+                                        <div><a href="/profile">profile</a></div>
+                                        <div><a href="/logout">logout</a></div>
+                                    </div>
+                                @else
+                                    <div id="some">login & resister<i class="caret"></i></div>
                                         <div class="h-dropdown" id="toggle">
-                                            <a href="/profile">profile</a>
-                                            <a href="/logout">logout</a>
+                                            <div><a href="/login">login</a></div>
+                                            <div><a href="/register">resister</a></div>
                                         </div>
-                                    @else
-                                        <a href="/login" title="">Login & Register</a>
-                                    @endif
-                                </div>
+                                @endif
                             </li>
-                       
                         </ul>
                         <ul class="nav navbar-nav">  
                             <li class="active"><a href="../index.php" title="">Home</a></li>
@@ -68,15 +69,18 @@
         });
 
         (function() {
-            $('.like-button').click(function(e) {
-                e.preventDefault();
-                $(this).toggleClass('liked');
-            });
+            var toggle = $("#toggle");
+            var some = $("#some")
+            $('header').next().on("click",function() {
+                 toggle.hide() 
+            })
+
+            some.on("click", function() {
+                console.log("skdfjls")
+                toggle.slideToggle()
+            })
         })();
-        $("#some").on("click", function() {
-            console.log("skdfjls")
-            $("#toggle").slideToggle()
-        })
+        
     </script>
      @yield('scripts')
 </body>
