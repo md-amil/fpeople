@@ -59,14 +59,11 @@
       })
     })
 
-    $('#btn-add-like').on('click',function(e){
-      e.preventDefault();
-      console.log('dksfl');
-      $.ajax({ 
-        
-        url:'/post/like',
-        method:'post',
-        data:[post_id,user_id]
+    $('btn-add-like').on('click',function(){
+       $(this).css({
+         'color' : 'blue',
+         'font-size': 19
+       })
       });
     })
 
