@@ -8,14 +8,14 @@
                        <h3 class="title">{{$post->title}}</h3>
                        <div class="img-user-time">
                            <div class="author"></div>
-                           <div class="author-name"><img height="50px" width="50px" src="{{$post->user->avatar}}" alt="hell">{{ $post->user->name }}
+                           <div class="author-name"><img height="50px" width="50px" style="border-radius:50%" src="{{$post->user->avatar}}" alt="avatar">{{ $post->user->name }}
                                 <div><time class="text-muted"><small>{{ $post->created_at->format('M d, Y') }}</small></time></div>
                            </div>
                        </div>
                        <div class="description"><p>{{$post->post}}</p></div>
                        <div class="hr-like-upper"></div>
                        <div class="like-comment-share">
-                           <div class="like-button"><a id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
+                           <div class="like-button"><a id="btn-add-like"  href="#">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
                            <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
                            <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
                            <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
@@ -59,8 +59,11 @@
       })
     })
 
-    $('btn-add-like').on('click',function(){
+    $('#btn-add-like').on('click',function(e){
+      e.preventDefault();
+      console.log('dksfl');
       $.ajax({ 
+        
         url:'/post/like',
         method:'post',
         data:[post_id,user_id]
