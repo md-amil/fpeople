@@ -8,14 +8,14 @@
                        <h3 class="title">{{$post->title}}</h3>
                        <div class="img-user-time">
                            <div class="author"></div>
-                           <div class="author-name"><img height="50px" width="50px" src="{{$post->user->avatar}}" alt="hell">{{ $post->user->name }}
+                          {{--  <div class="author-name"><img height="50px" width="50px" src="{{$post->user->avatar}}" alt="hell">{{ $post->user->name }}
                                 <div><time class="text-muted"><small>{{ $post->created_at->format('M d, Y') }}</small></time></div>
-                           </div>
+                           </div> --}}
                        </div>
                        <div class="description"><p>{{$post->post}}</p></div>
                        <div class="hr-like-upper"></div>
                        <div class="like-comment-share">
-                           <div class="like-button"><a id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
+                           <div class="like-button" id="like_button"><a data-isliked="false"id="btn-add-like" href="">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
                            <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
                            <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
                            <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
@@ -56,16 +56,48 @@
          comments.unshift(res);
          addComments();
          form.reset();
-      })
-    })
+      });
+    });
+});
+  var i = 0;
 
-    $('btn-add-like').on('click',function(){
-       $(this).css({
+
+    $('#btn-add-like').on('click', function(e) { 
+      e.preventDefault();
+      var isliked = $(this).data('isliked');
+        if( isliked == false){
+          $(this).data('isliked',"true");
+          $(this).css({
          'color' : 'blue',
          'font-size': 19
-       })
+       });
+          $.ajax({
+            url:'/post/like',
+           method:'post',
+           data:{isliked:isliked}
+          })
+        }else{
+           $(this).data('isliked',false);
+          $.ajax({
+            url:'/post/like',
+           method:'post',
+           data:{isliked:isliked},
+           success:function(){
+
+           }
+          });
+          console.log( $(this).data('isliked'));
+           $(this).css({
+           'color' : '#545454e8',
+           'font-size': 13
+       });
+
+        }
+         
       });
-    })
+       
+   
+  
 
 </script>
 @endsection
