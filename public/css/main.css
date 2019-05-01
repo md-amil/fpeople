@@ -150,9 +150,6 @@ body {
     font-size: 14px;
     color: #403e3e;
 }
-.comment-sec {
-  /*display: inline-block;*/
-}
 
 .title {
     color: #000;
@@ -250,9 +247,7 @@ body {
     border-radius: 3px;
     font-weight: bold;
 }
-#main-content {
 
-}
 .inside-content {
     background-color: #fff;
     margin-top: 20px;
@@ -265,13 +260,13 @@ body {
 .inside-content h1 {
     width: 520px;
 }
-#some {
+#login-profile {
     margin-top: -15px;
     cursor: pointer;
     font-family: fantasy;
     color: #393f54;
 }
-#some img{
+#login-profile img{
     border-radius: 40px;
     margin: 3px;
     padding: 1px;

@@ -15,7 +15,7 @@
                                     <input type="text" name="title" class="form-input" placeholder="Title" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="exerpt" class="form-input" placeholder="Exerpt" required>
+                                    <input type="text" name="excerpt" class="form-input" placeholder="Excerpt" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="description" class="form-input" placeholder="Description">
