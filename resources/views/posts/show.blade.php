@@ -60,10 +60,10 @@
     })
 
     $('btn-add-like').on('click',function(){
-      $.ajax({ 
-        url:'/post/like',
-        method:'post',
-        data:[post_id,user_id]
+       $(this).css({
+         'color' : 'blue',
+         'font-size': 19
+       })
       });
     })
 
