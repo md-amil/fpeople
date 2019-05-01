@@ -7,9 +7,9 @@
                    <div class="show-post" id="show-full-post">
                        <h3 class="title">{{$post->title}}</h3>
                        <div class="img-user-time">
-                           <div class="author-img"><img src="{{$post->user->avatar}}" alt=""></div>
-                           <div class="author-name">{{ $post->user->name }}
-                                <div><time class="text-muted">{{ $post->created_at->format('M d, Y') }}</time></div>
+                           <div class="author"></div>
+                           <div class="author-name"><img height="50px" width="50px" src="{{$post->user->avatar}}" alt="hell">{{ $post->user->name }}
+                                <div><time class="text-muted"><small>{{ $post->created_at->format('M d, Y') }}</small></time></div>
                            </div>
                        </div>
                        <div class="description"><p>{{$post->post}}</p></div>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/app.css" />
     <link rel="stylesheet" href="http://beeknock.com/tools/bee-icon/beeicon-font.css" />
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    
     <style>
         body {
             font-size: 14px;
@@ -29,13 +30,13 @@
                         <ul class="icon">
                             <li>
                                 @if(auth()->check())
-                                    <div id="some"><img width="50" height="50" id="avatar-img" src="{{ auth()->user()->avatar }}"/>{{auth()->user()->name}}<i class="caret"></i></div>
+                                    <div id="login-profile"><img width="50" height="50" id="avatar-img" src="{{ auth()->user()->avatar }}"/>{{auth()->user()->name}}<i class="caret"></i></div>
                                     <div class="h-dropdown" id="toggle">
                                         <div><a href="/profile">profile</a></div>
                                         <div><a href="/logout">logout</a></div>
                                     </div>
                                 @else
-                                    <div id="some">login & resister<i class="caret"></i></div>
+                                    <div id="login-profile">login & resister<i class="caret"></i></div>
                                         <div class="h-dropdown" id="toggle">
                                             <div><a href="/login">login</a></div>
                                             <div><a href="/register">resister</a></div>
@@ -57,6 +58,7 @@
         </div>
     </header>
     @yield('content')
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.1.0/classic/ckeditor.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/handlebars-v4.1.1.js"></script>
@@ -68,13 +70,12 @@
 
         (function() {
             var toggle = $("#toggle");
-            var some = $("#some")
+            var some = $("#login-profile");
             $('header').next().on("click",function() {
                  toggle.hide() 
             })
 
             some.on("click", function() {
-                console.log("skdfjls")
                 toggle.slideToggle()
             })
         })();

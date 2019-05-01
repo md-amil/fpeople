@@ -52,8 +52,10 @@ class PostController extends Controller
             'description'=>'required'
         ]);
         $post = new Post();
+        $post->user_id = auth()->id();
         $post->title=$request->title;
-        $post->description = $request->description;
+        $post->excerpt = $request->excerpt;
+        $post->post = $request->description;
         $post->save();
     }
 
