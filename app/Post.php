@@ -33,4 +33,9 @@ class Post extends Model
     {
         return $this->hasOne(Vote::class);
     }
+
+    public function myVote()
+    {
+        return $this->vote()->where('user_id', auth()->id())->first();
+    }
 }

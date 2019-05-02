@@ -34,18 +34,28 @@ class VoteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
-        $post = Post::find($request->post_id);
-        $vote = $post->votes()->where('user_id', auth()->id())->first();
+        $user = $request->user();
+        $vote = $post->votes()->where('user_id', $user->id)->first();
+        $votes_counts = count($post->votes()->get());
         if($vote) {
             $vote->delete();
-        } else {
-            $post->votes()->save(new Vote([
-                'user_id' => $request->user()->id
-            ]));
+            return [
+                'status' => 'ok',
+                'liked' => false,
+                'vote_count'=>$votes_counts
+            ];
         }
-        return back();
+        
+        $post->votes()->save(new Vote([
+            'user_id' => $user->id
+        ]));
+        return [
+            'status' => 'ok',
+            'liked' => true,
+            'vote_count'=>$votes_counts
+        ];
     }
 
     /**

@@ -293,3 +293,6 @@ body {
     margin-top: -47px;
     margin-right: -16px;
 }
+.liked{
+    color: blue !important;
+}

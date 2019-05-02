@@ -15,7 +15,7 @@
                        <div class="description"><p>{{$post->post}}</p></div>
                        <div class="hr-like-upper"></div>
                        <div class="like-comment-share">
-                           <div class="like-button"><a id="btn-add-like"  href="#">Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
+                       <div class="like-button" id="like_button"><a class="{{ $post->myVote() ? 'liked' : '' }}" data-post_id="{{$post->id}}"id="btn-add-like" href=""> <span id="like-count"></span> Like <span class="glyphicon glyphicon-thumbs-up"></span></a></div>
                            <div class="action text-center"><a id="btn-write-comment" href="">Comment</a><span class="glyphicon glyphicon-comment"></span></div>
                            <div class="share-button"><span class="glyphicon glyphicon-share-alt"></span>share</div>
                            <form method="POST" style="display: none" id="write-comment" action="/posts/{{$post->id}}/comments" class="text-right">
@@ -56,16 +56,31 @@
          comments.unshift(res);
          addComments();
          form.reset();
-      })
-    })
-
-    $('btn-add-like').on('click',function(){
-       $(this).css({
-         'color' : 'blue',
-         'font-size': 19
-       })
       });
-    })
+    });
+});
+  var i = 0;
+
+
+    $('#btn-add-like').on('click', function(e) { 
+      e.preventDefault();
+      $.ajax({
+        url:'/posts/'+$(this).data('post_id')+'/like',
+        success:function(res){
+          console.log(res['vote_count']);
+          $('#like-count').html(res['vote_count']);
+          if(res['liked']==false){
+            $('#btn-add-like').removeClass('liked');
+          }else{
+            $('#btn-add-like').addClass('liked');
+          }
+        }
+      })
+         
+    });
+       
+   
+  
 
 </script>
 @endsection
